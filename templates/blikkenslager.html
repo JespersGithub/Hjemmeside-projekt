@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}Blikkenslager - Aage Jensen & Søn{% endblock %}
+
+{% block content %}
+<section class="service-section py-5">
+    <div class="container">
+        <div class="service-content">
+            <h2 class="text-center mb-4">Professionel Blikkenslager Service</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{{ url_for('static', filename='images/blikkenslager.jpg') }}" class="img-fluid" alt="Blikkenslager">
+                </div>
+                <div class="col-md-6">
+                    <p class="service-description">Vores blikkenslagere leverer pålidelig og professionel service til alle dine VVS-behov. Uanset om det drejer sig om reparation af utætte rør, udskiftning af defekte vandhaner eller installation af nye VVS-faciliteter, kan du regne med vores ekspertise. Vi prioriterer kvalitet, pålidelighed og kundetilfredshed, og vi er dedikerede til at levere de bedste løsninger til vores kunder.</p>
+                    
+                    
+                    <a href="{{ url_for('contact') }}" class="btn btn-primary mt-3">Kontakt</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .service-section {
+        background-color: #f8f9fa;
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .service-content {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+    }
+
+    .service-description {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #555;
+    }
+
+    .service-description img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .btn {
+        display: inline-block;
+        font-weight: 400;
+        color: #212529;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        background-color: #007bff;
+        border: 1px solid #007bff;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: 0.25rem;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+    .btn:hover {
+        color: #fff;
+        background-color: #0056b3;
+        border-color: #004085;
+    }
+</style>
+{% endblock %}

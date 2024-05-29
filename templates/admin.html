@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Velkommen til Admin Dashboard</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Telefon</th>
+                <th>Navn</th>
+                <th>Besked</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                    <td>{{ row[4] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('logout') }}" class="btn btn-primary">Log ud</a>
+    <button class="btn btn-danger" onclick="confirmWipe()">Ryd Database</button>
+
+    <script>
+        function confirmWipe() {
+            if (confirm('Er du sikker på, at du vil rydde databasen? Denne handling kan ikke fortrydes.')) {
+                fetch('/wipe_database', { method: 'POST' })
+                    .then(response => {
+                        if (response.ok) {
+                            alert('Databasen er ryddet.');
+                            location.reload(); 
+                        } else {
+                            alert('Der opstod en fejl under rydning af databasen.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Fejl ved rydning af database:', error);
+                        alert('Der opstod en fejl under rydning af databasen.');
+                    });
+            }
+        }
+    </script>
+{% endblock %}

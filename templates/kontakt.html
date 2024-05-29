@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}Kontakt - Aage Jensen & Søn{% endblock %}
+
+{% block content %}
+
+<section class="contact-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="contact-info-box">
+                    <h2>Kontakt os i dag</h2>
+                    <p>Aage Jensen og søn</p>
+                    <p>Håndværkervænget 4, 3400 Hillerød</p>
+                    <p>(+45) 30 59 43 27</p>
+                    <p>aagejensenogson@outlook.dk</p>
+                    <p>CVR nr.: 43937227</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="contact-form-box">
+                    <h2>Kontaktformular</h2>
+                    <form method="post">
+                        <div class="form-group">
+                            <label for="name">Navn:</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail:</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefon:</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Besked:</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Besked</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="map-section py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Find os her</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="map-container" style="border: 0;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4469.261653381324!2d12.321500776289245!3d55.938437577678314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465240af4e56e52d%3A0x6c7dd1399048bde7!2zSMOlbmR2w6Zya2VydsOmbmdldCA0LCAzNDAwIEhpbGxlcsO4ZA!5e0!3m2!1sda!2sdk!4v1716396311078!5m2!1sda!2sdk" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

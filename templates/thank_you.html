@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Tak - Aage Jensen & Søn{% endblock %}
+
+{% block content %}
+
+<section class="thank-you-section py-5 text-center">
+    <div class="container">
+        <h2>Tak for din besked!</h2>
+        <p>Vi har modtaget din besked og vender tilbage til dig hurtigst muligt.</p>
+        <a href="{{ url_for('home') }}" class="btn btn-primary mt-3">Tilbage til forsiden</a>
+    </div>
+</section>
+{% endblock %}

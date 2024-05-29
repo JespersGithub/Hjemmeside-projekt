@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}Varmepumpe - Aage Jensen & Søn{% endblock %}
+
+{% block content %}
+<section class="service-section py-5">
+    <div class="container">
+        <div class="service-content">
+            <h2 class="text-center mb-4">Effektive Varmepumpe Installationer</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{{ url_for('static', filename='images/varmepumpe.jpg') }}" class="img-fluid" alt="Varmepumpe">
+                </div>
+                <div class="col-md-6">
+                    <p class="service-description">Varmepumper er en energieffektiv og miljøvenlig løsning til opvarmning og køling af hjemmet. Vores erfarne teknikere tilbyder professionel installation, vedligeholdelse og reparation af varmepumper i forskellige typer og modeller. Vi kan hjælpe med at vælge den rette varmepumpe til dine behov og installere den korrekt for optimal ydeevne og energibesparelser. Med vores varmepumpeløsninger kan du nyde en behagelig temperatur i dit hjem året rundt, samtidig med at du reducerer din energiregning og din miljøpåvirkning.</p>
+                    
+                    
+                    <a href="{{ url_for('contact') }}" class="btn btn-primary mt-3">Kontakt</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .service-section {
+        background-color: #f8f9fa;
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .service-content {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+    }
+
+    .service-description {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #555;
+    }
+
+    .service-description img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .btn {
+        display: inline-block;
+        font-weight: 400;
+        color: #212529;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        background-color: #007bff;
+        border: 1px solid #007bff;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: 0.25rem;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+    .btn:hover {
+        color: #fff;
+        background-color: #0056b3;
+        border-color: #004085;
+    }
+</style>
+{% endblock %}

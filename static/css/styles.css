@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.jumbotron {
+    background: url('../images/hero.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 100px 25px;
+}
+
+.jumbotron h1 {
+    font-size: 3rem;
+}
+#kontakt-side
+.footer {
+    background-color: #343a40;
+    color: #fff;
+}
+.contact-info-box {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.contact-form-box {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.contact-form-box form label {
+    font-weight: bold;
+}
+
+.map-container {
+    border-radius: 10px;
+    overflow: hidden;
+}

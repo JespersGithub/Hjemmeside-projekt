@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}Om os - Aage Jensen & Søn{% endblock %}
+
+{% block content %}
+<section class="about-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="about-content">
+                    <h2 class="mb-4">Velkommen til Aage Jensen & Søn</h2>
+                    <img src="{{ url_for('static', filename='images/about.jpg') }}" class="img-fluid mb-4" alt="Hvem er vi?">
+                    <p>Fra oldefar til nu</p>
+                    <p>Aage Jensen og Søn er mere end bare en VVS-virksomhed – vi er en stolt familie, der har serveret Hillerød og det omkringliggende samfund i generationer. Vores historie går tilbage til 1940, hvor vores oldefar grundlagde firmaet. Siden da har vi været en fast bestanddel i Hillerød og er blevet kendt som byens ældste VVS-virksomhed.</p>
+                    <p>Vi er den 4. generation, der har overtaget dette skønne håndværk fra vores forfædre. Det er en arv, vi bærer med stolthed og ydmyghed. At bevare traditionerne og samtidig tilpasse os den moderne tid er vores måde at ære vores fortid og bygge en stærk fremtid på.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="about-content">
+                    <h2 class="mb-4">Hvem er vi?</h2>
+                    <p>Fra oldefar til nu</p>
+                    <p>Aage Jensen og Søn er mere end bare en VVS-virksomhed – vi er en stolt familie, der har serveret Hillerød og det omkringliggende samfund i generationer. Vores historie går tilbage til 1940, hvor vores oldefar grundlagde firmaet. Siden da har vi været en fast bestanddel i Hillerød og er blevet kendt som byens ældste VVS-virksomhed.</p>
+                    <p>Vi er den 4. generation, der har overtaget dette skønne håndværk fra vores forfædre. Det er en arv, vi bærer med stolthed og ydmyghed. At bevare traditionerne og samtidig tilpasse os den moderne tid er vores måde at ære vores fortid og bygge en stærk fremtid på.</p>
+                    <img src="{{ url_for('static', filename='images/another-image.jpg') }}" class="img-fluid mt-4" alt="Hvem er vi?">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .about-section {
+        background-color: #f8f9fa;
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .about-content {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+    }
+
+    .about-content h2 {
+        color: #333;
+    }
+
+    .about-content p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #555;
+    }
+
+    .img-fluid {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+</style>
+{% endblock %}

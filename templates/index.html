@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+
+{% block title %}Aage Jensen & Søn{% endblock %}
+
+{% block content %}
+
+<div class="hero-section">
+    <div class="container text-center">
+        <h1 class="display-4">Velkommen til Aage Jensen & Søn</h1>
+        <p class="lead">Din betroede partner inden for håndværk og kvalitet.</p>
+    </div>
+</div>
+
+<div class="container">
+    <h2 class="text-center mb-2">Lad os hjælpe dig</h2>
+    <p class="text-center mb-4">professionel VVS</p>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <a href="{{ url_for('about') }}" class="image-link">
+                <img src="{{ url_for('static', filename='images/image1.jpg') }}" alt="Om os">
+                <div class="overlay">
+                    <h3>Om os</h3>
+                    <p>Find ud af mere om os og vores historie.</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4 mb-4">
+            <a href="{{ url_for('fjernvarme') }}" class="image-link">
+                <img src="{{ url_for('static', filename='images/image2.jpg') }}" alt="Services">
+                <div class="overlay">
+                    <h3>Vores Services</h3>
+                    <p>Se vores brede udvalg af services.</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4 mb-4">
+            <a href="{{ url_for('contact') }}" class="image-link">
+                <img src="{{ url_for('static', filename='images/image3.jpg') }}" alt="Kontakt os">
+                <div class="overlay">
+                    <h3>Kontakt os</h3>
+                    <p>Har du spørgsmål? Kontakt os her.</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<section class="new-content-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="content-box">
+                    <h2>VVS og blikkenslager i Hillerød: Varmepumpe og fjernvarme</h2>
+                    <p class="lead">Hvorfor vælge os?</p>
+                    <p class="lead">Velkommen til Aage Jensen og Søn, hvor vi kombinerer stolte 83 års erfaring med en passion for at skabe VVS-mesterværker. Med vores lange historie bag os, er vi klar til at skabe en strålende fremtid for din bolig eller virksomhed.</p>
+                    <p class="lead">Hos Aage Jensen og Søn tror vi på værdierne kvalitet, kommunikation og overholdelse af deadlines. Vi mener, at hvert projekt er en chance for at skabe en dybere forbindelse med vores kunder. Vi lytter, vi forstår, og vi leverer resultater, der overstiger forventningerne.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="content-box">
+                    <h2>Hvad kan vi tilbyde?</h2>
+                    <ol class="service-list">
+                        <li>Fjernvarmeinstallationer</li>
+                        <li>Badeværelsesrenoveringer</li>
+                        <li>VVS-tjenester</li>
+                        <li>Varmepumper og blikkenslagerarbejde</li>
+                    </ol>
+                    <p>Vil du høre mere?</p>
+                    <p>Kontakt os på:</p>
+                    <ul class="contact-info">
+                        <li>Telefon: (+45) 30 59 43 27</li>
+                        <li>Email: aagejensenogson@outlook.dk</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .hero-section {
+        background: url('{{ url_for('static', filename='images/hero-background.jpg') }}') no-repeat center center;
+        background-size: cover;
+        color: white;
+        padding: 100px 0;
+        text-align: center;
+    }
+    .hero-section .container {
+        background: rgba(
+            0, 0, 0, 0.5);
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .image-link {
+        position: relative;
+        display: block;
+        overflow: hidden;
+    }
+
+    .image-link img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.3s ease;
+    }
+
+    .image-link:hover img {
+        transform: scale(1.1);
+    }
+
+    .image-link .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.5s;
+    }
+
+    .image-link:hover .overlay {
+        opacity: 1;
+    }
+
+    .new-content-section {
+        background-color: #f8f9fa;
+    }
+
+    .content-box {
+        background-color: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+    }
+
+    .content-box h2 {
+        color: #007bff;
+        margin-bottom: 10px;
+    }
+
+    .content-box p {
+        margin-bottom: 10px;
+    }
+
+    .content-box .lead {
+        font-size: 18px;
+    }
+
+    .service-list {
+        margin-bottom: 20px;
+    }
+
+    .service-list li {
+        margin-bottom: 5px;
+    }
+
+    .contact-info {
+        list-style: none;
+        padding: 0;
+    }
+
+    .contact-info li {
+        margin-bottom: 5px;
+    }
+</style>
+
+<section class="facebook-link-section py-4">
+    <div class="container text-center">
+        <div class="row align-items-center justify-content-center"> 
+            <div class="col-md-6 text-md-right">
+                <p class="mb-0">Følg os på Facebook:</p>
+            </div>
+            <div class="col-md-6 text-md-left">
+                <a href="https://www.facebook.com/people/Aage-Jensen-S%C3%B8n/100054311809066/" target="_blank" class="btn btn-primary">Visit our Facebook page</a>
+                <img src="{{ url_for('static', filename='images/facebook-logo.png') }}" alt="Facebook Logo" class="ml-2" style="height: 30px;">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}
