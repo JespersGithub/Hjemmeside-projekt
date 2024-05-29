@@ -66,7 +66,6 @@ def blikkenslager():
 def varmepumpe():
     return render_template('varmepumpe.html')
 
-# Login route
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
