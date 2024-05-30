@@ -1,17 +1,38 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 import mysql.connector
 from functools import wraps
+import logging
+
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'
 
-db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="Password1234",
-    database="aagejensen"
-)
-cursor = db.cursor()
+
+logging.basicConfig(filename='error.log', level=logging.DEBUG)
+
+
+def get_db_connection():
+    try:
+        conn = mysql.connector.connect(
+            host="localhost",
+            user="root",
+            password="Password1234",
+            database="aagejensen"
+        )
+        return conn
+    except mysql.connector.Error as err:
+        app.logger.error("Database connection error: %s", err)
+        return None
+
+@app.errorhandler(500)
+def internal_error(error):
+    app.logger.error('Server Error: %s', error)
+    return render_template('500.html'), 500
+
+@app.errorhandler(Exception)
+def unhandled_exception(e):
+    app.logger.error('Unhandled Exception: %s', (e))
+    return render_template('500.html'), 500
 
 def login_required(f):
     @wraps(f)
@@ -36,13 +57,24 @@ def contact():
         phone = request.form['phone']
         name = request.form['name']
         message = request.form['message']
-
-        sql = "INSERT INTO contact_form (email, phone, name, message) VALUES (%s, %s, %s, %s)"
-        val = (email, phone, name, message)
-        cursor.execute(sql, val)
-        db.commit()
-
-        return redirect(url_for('thank_you'))
+        
+        conn = get_db_connection()
+        if conn:
+            cursor = conn.cursor()
+            try:
+                sql = "INSERT INTO contact_form (email, phone, name, message) VALUES (%s, %s, %s, %s)"
+                val = (email, phone, name, message)
+                cursor.execute(sql, val)
+                conn.commit()
+                return redirect(url_for('thank_you'))
+            except mysql.connector.Error as err:
+                app.logger.error("Error inserting data: %s", err)
+                flash('Der opstod en fejl ved indsættelse af data.')
+            finally:
+                cursor.close()
+                conn.close()
+        else:
+            flash('Databaseforbindelse mislykkedes.')
 
     return render_template('kontakt.html')
 
@@ -88,16 +120,41 @@ def logout():
 @app.route('/admin')
 @login_required
 def admin():
-    cursor.execute("SELECT * FROM contact_form")
-    data = cursor.fetchall()
-    return render_template('admin.html', data=data)
+    conn = get_db_connection()
+    if conn:
+        cursor = conn.cursor()
+        try:
+            cursor.execute("SELECT * FROM contact_form")
+            data = cursor.fetchall()
+            return render_template('admin.html', data=data)
+        except mysql.connector.Error as err:
+            app.logger.error("Error fetching data: %s", err)
+            flash('Der opstod en fejl ved hentning af data.')
+        finally:
+            cursor.close()
+            conn.close()
+    else:
+        flash('Databaseforbindelse mislykkedes.')
+    return render_template('admin.html')
 
 @app.route('/wipe_database', methods=['POST'])
 @login_required
 def wipe_database():
-    cursor.execute("DELETE FROM contact_form")
-    db.commit()
-    flash('Databasen er blevet ryddet.')
+    conn = get_db_connection()
+    if conn:
+        cursor = conn.cursor()
+        try:
+            cursor.execute("DELETE FROM contact_form")
+            conn.commit()
+            flash('Databasen er blevet ryddet.')
+        except mysql.connector.Error as err:
+            app.logger.error("Error wiping database: %s", err)
+            flash('Der opstod en fejl ved sletning af databasen.')
+        finally:
+            cursor.close()
+            conn.close()
+    else:
+        flash('Databaseforbindelse mislykkedes.')
     return redirect(url_for('admin'))
 
 if __name__ == '__main__':
