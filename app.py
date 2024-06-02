@@ -87,7 +87,7 @@ def fjernvarme():
     return render_template('fjernvarme.html')
 
 @app.route('/nyt-badevaerelse')
-def nyt_badevaerelse():
+def nyt-badevaerelse():
     return render_template('nyt_badevaerelse.html')
 
 @app.route('/blikkenslager')
